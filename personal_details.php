@@ -6,7 +6,7 @@ $pid = $_GET['pid'];
 		$sql = "SELECT
 				designation_tbl.designation,
 				personal_info_tbl.personal_info_id,
-				personal_info_tbl.name,
+				personal_info_tbl.full_name,
 				personal_info_tbl.designation_id,
 				personal_info_tbl.nic,
 				personal_info_tbl.ministry_id_cat,
@@ -20,7 +20,7 @@ $pid = $_GET['pid'];
 				personal_info_tbl.personal_info_id =  '$pid'";
 		$result = mysqli_query($conn,$sql);
 		$row = mysqli_fetch_array($result);
-			$name = $row['name'];
+			$name = $row['full_name'];
 			$designation_id = $row['designation_id'];
 			$designation = $row['designation'];
 			$nic = $row['nic'];
@@ -77,24 +77,11 @@ $(function () {
       <ul class="dropdown-menu">
         <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
         <li class="divider"></li>
-        <li><a href="#"><i class="icon-check"></i> My Tasks</a></li>
-        <li class="divider"></li>
-        <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
-      </ul>
-    </li>
-    <li class="dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important">5</span> <b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li><a class="sAdd" title="" href="#"><i class="icon-plus"></i> new message</a></li>
-        <li class="divider"></li>
-        <li><a class="sInbox" title="" href="#"><i class="icon-envelope"></i> inbox</a></li>
-        <li class="divider"></li>
-        <li><a class="sOutbox" title="" href="#"><i class="icon-arrow-up"></i> outbox</a></li>
-        <li class="divider"></li>
-        <li><a class="sTrash" title="" href="#"><i class="icon-trash"></i> trash</a></li>
+        <li><a href="login.php"><i class="icon-key"></i> Log Out</a></li>
       </ul>
     </li>
     <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>
-    <li class=""><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+    <li class=""><a title="" href="login.php"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
   </ul>
 </div>
 
@@ -128,13 +115,21 @@ $(function () {
           <form action="javascript:void(0);" id="form_submit" class="form-horizontal">
 		  
             <div class="control-group">
-              <label class="control-label">Name :</label>
+              <label class="control-label">Full Name :</label>
               <div class="controls">
-                <input type="text" class="span11" placeholder="Name" name="name" value="<?php if(isset($_GET['pid']) == true){ echo $name; } ?>" />
+                <input type="text" class="span11" placeholder="Full Name" name="Full Name" value="<?php if(isset($_GET['pid']) == true){ echo $name; } ?>" />
 				<input type="hidden" name="pid" value="<?php if(isset($_GET['pid']) == true){ echo $pid; } ?>" />
               </div>
             </div>
-			
+
+            <div class="control-group">
+              <label class="control-label">Name with Initials :</label>
+              <div class="controls">
+                <input type="text" class="span11" placeholder="Name with Initials" name="Name with Initials" value="<?php if(isset($_GET['pid']) == true){ echo $name; } ?>" />
+				<input type="hidden" name="pid" value="<?php if(isset($_GET['pid']) == true){ echo $pid; } ?>" />
+              </div>
+            </div>
+
 			<div class="control-group">
               <label class="control-label">Designation <span style="color:red;">*</span> :</label>
               <div class="controls">
