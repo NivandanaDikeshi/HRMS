@@ -353,17 +353,8 @@ $(function () {
 <script src="js/matrix.form_common.js"></script> 
 <script src="js/masked.js"></script> 
 <script src="js/jquery.uniform.js"></script>
-
-
-
-
-
 <script src="js/jquery.toggle.buttons.js"></script> 
-
- 
 <script src="js/select2.min.js"></script> 
-
-
 <script src="js/wysihtml5-0.3.0.js"></script> 
 <script src="js/jquery.peity.min.js"></script> 
 <script src="js/bootstrap-wysihtml5.js"></script> 
